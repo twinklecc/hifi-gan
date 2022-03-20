@@ -180,6 +180,10 @@ def train(rank, a, h):
 
                 # Tensorboard summary logging
                 if steps % a.summary_interval == 0:
+                    sw.add_scalar("training/gen_loss_s", loss_gen_s, steps)
+                    sw.add_scalar("training/gen_loss_f", loss_gen_f, steps)
+                    sw.add_scalar("training/loss_fm_s", loss_fm_s, steps)
+                    sw.add_scalar("training/loss_fm_f", loss_fm_f, steps)
                     sw.add_scalar("training/gen_loss_total", loss_gen_all, steps)
                     sw.add_scalar("training/mel_spec_error", mel_error, steps)
 
